@@ -20,13 +20,13 @@ class Card {
   createCard() {
       //verify last card - remover quando o backend mandar o id
       const cards = document.querySelectorAll('div.line.task')
-      const id = cards.length + 1;
+    
 
       console.log('create div card')
       //move to draggable
       const card = document.createElement("div");
       card.classList.value = "line task";
-      card.setAttribute("id", `${id}`)
+      card.setAttribute("id", `card${this.existCard(this.id)}`)
       card.innerHTML = "";
 
       card.setAttribute("draggable", "true");
@@ -52,19 +52,19 @@ class Card {
       edit.classList.value = "col s3 fa-solid fa-pen-to-square";
       // edit.setAttribute("data-toggle", "modal");
       // edit.setAttribute("data-target", "#modalUpdate");
-      edit.setAttribute("onclick", `editCard(${this.id});`);
+      edit.setAttribute("onClick", `editCard(${this.id});`);
 
       //add button trash
-     // console.log('create trash card')
+      console.log('create trash card')
       const trash = document.createElement("button");
-      trash.classList.value = "";
-      trash.setAttribute("onclick", `(${id});`);
+      trash.classList.value = "col s3 fa-solid fa-trash";
+      trash.setAttribute("onClick", `deleteCard(${id});`);
 
       //add child's in card
       console.log('create card child')
       card.append(p);
       card.append(edit);
-      //card.append(trash);
+      card.append(trash);
 
       return card;
   }
@@ -73,10 +73,15 @@ class Card {
     const newValue = editInput.value;
     console.log(newValue);
   }
-
+  existCard(id) {
+    let card = document.querySelector(`#card${id}`)
+    if(!card) return id
+    const index = Math.floor(Math.random() * 100)
+    this.existCard(index)
+  }
 }
 
-//capturando o evento com preventDefault para PAGINA NÃO ATUALIZAR NÃO MEXE
+//capturando o evento com preventDefault para PAGINA NÃO ATUALIZAR 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 });
@@ -126,16 +131,16 @@ function editCardReal() {
 }
 
 // function editCard(id) {
-//   //edit card
-//   todoLane.querySelector(`#descripition-card${id}`).innerHTML = "abulele"
+
+//    todoLane.querySelector(`#descripition-card${id}`).innerHTML = "abulele"
 // }
 
-// function deleteCard(id) {
-//   todoLane.querySelector(`#card${id}`).remove()
-// }
+
+  function deleteCard(id) {
+      window.alert("Deseja realmente excluir este item? ")
+    todoLane.querySelector(`#card${id}`).remove()
+  }
 
 function clearDialog() {
   createInput.value = "";
 }
-
-

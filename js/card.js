@@ -24,18 +24,18 @@ class Card {
         //add button edit
         const edit = document.createElement("button").innerHTML = this.value;
         edit.classList("col s3 fa-solid fa-pen-to-square")
-        // edit.setAttribute("data-toggle", "modal");
-        // edit.setAttribute("data-target", "#modalUpdate");
+       //  edit.setAttribute("data-toggle", "modal");
+      //   edit.setAttribute("data-target", "#modalUpdate");
         edit.setAttribute("onclick", $("#modalUpdate").modal("show"));
 
         //add button trash
-        // const trash = document.createElement("button").innerHTML = this.value;
-        // trash.setAttribute("onclick", `deleteCard(${this.id});`);
+         const trash = document.createElement("button").innerHTML = this.value;
+         trash.setAttribute("onclick", `deleteCard(${this.id});`);
 
         //add child's in card
         card.appendChild(p);
         card.appendChild(edit);
-      //  card.appendChild(trash);
+       card.appendChild(trash);
 
         return card;
     }
