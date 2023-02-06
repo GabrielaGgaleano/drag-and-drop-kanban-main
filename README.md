@@ -3,10 +3,5 @@ Projeto criado com o intuito de melhor organização na equipe, assim todos sabe
 
 
 <!-- fazer no backend  -->
-
- DTO --> Objeto de Transferência de Dados
- https Request --> Delete Post Put Get
- obs --> get para id do projeto X por exemplo
- auth2 --> para niveis de permissão de edição, e outras funcionalidades
  
  

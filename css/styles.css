@@ -25,6 +25,8 @@
 /* ---- FORM ---- */
 #todo-form {
   padding: 32px 32px 0;
+  width: 100%;
+
 }
 
 #todo-form input {
@@ -50,11 +52,12 @@
 
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
   background: #ffffff;
-  color: rgb(3, 3, 3);
-
+  color: rgb(0, 0, 0);
+  outline: none;
   font-weight: bold;
   font-size: 14px;
   cursor: pointer;
+  
 }
 
 
@@ -63,7 +66,7 @@
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  gap: 16px;
+  gap: 20px;
 
   padding: 24px 32px;
 
@@ -87,17 +90,18 @@
 
   padding: 12px;
   border-radius: 4px;
-  width: 225px;
+  width: 270px;
   min-height: 120px;
 
   flex-shrink: 0;
 }
 
+
 .task {
   background: white;
   color: rgb(12, 12, 12);
   box-shadow: 0px 5px 15px rgba(24, 23, 23, 0.15);
-
+    word-wrap: break-word;
   padding: 12px;
   border-radius: 4px;
 
@@ -116,4 +120,11 @@
   gap: 2.5px;
   display: absolute;
   margin-top: 10px;
+  margin: 1em 2em;
+}
+
+[type=reset], [type=submit], button, html [type=button] {
+  -webkit-appearance: button;
+  border: white;
+  outline: none;
 }
