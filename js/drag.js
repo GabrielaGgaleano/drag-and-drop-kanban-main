@@ -12,16 +12,16 @@ draggables.forEach((task) => {
 
 droppables.forEach((zone) => {
   zone.addEventListener("dragover", (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    const bottomTask = insertAboveTask(zone, e.clientY);
-    const curTask = document.querySelector(".is-dragging");
+  const bottomTask = insertAboveTask(zone, e.clientY);
+  const curTask = document.querySelector(".is-dragging");
 
-    if (!bottomTask) {
-      zone.appendChild(curTask);
-    } else {
-      zone.insertBefore(curTask, bottomTask);
-    }
+  if (!bottomTask) {
+    zone.appendChild(curTask);
+  } else {
+    zone.insertBefore(curTask, bottomTask);
+  }
   });
 });
 
@@ -32,13 +32,13 @@ const insertAboveTask = (zone, mouseY) => {
   let closestOffset = Number.NEGATIVE_INFINITY;
 
   els.forEach((task) => {
-    const { top } = task.getBoundingClientRect();
+  const { top } = task.getBoundingClientRect();
 
-    const offset = mouseY - top;
+  const offset = mouseY - top;
 
-    if (offset < 0 && offset > closestOffset) {
-      closestOffset = offset;
-      closestTask = task;
+  if (offset < 0 && offset > closestOffset) {
+    closestOffset = offset;
+    closestTask = task;
     }
   });
 

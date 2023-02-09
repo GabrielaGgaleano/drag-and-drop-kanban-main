@@ -37,7 +37,7 @@ class Card {
       card.addEventListener("dragend", () => {
           card.classList.remove("is-dragging");
       });
-
+ 
       //add text
       console.log('create p card')
       const p = document.createElement("p");
@@ -76,7 +76,9 @@ class Card {
   existCard(id) {
     let card = document.querySelector(`#card${id}`)
     if(!card) return id
-    const index = Math.floor(Math.random() * 100)
+    const index = Math.floor(Math.random() * 50)
+
+
     this.existCard(index)
   }
 
@@ -92,7 +94,8 @@ function addCard() {
 
   if (!value) return;
 
-  const index = Math.floor(Math.random() * 100)
+  const index = Math.floor(Math.random() * 50)
+      
 
   const card = new Card(index, value)
   const card_create = card.createCard()
@@ -144,5 +147,4 @@ function deleteCard(id) {
 function clearDialog() {
   createInput.value = "";
 }
-
 
